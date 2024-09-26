@@ -1,4 +1,6 @@
 package com.fakhrulasa.emailvalidator_composeclean.data.model.ui_model
 
-class EmailValidatorScreenUiModel {
-}
+data class EmailValidatorScreenUiModel(
+    val domainHintText:String,
+    val verifyEmailButtonString:String
+)
