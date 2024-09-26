@@ -78,4 +78,14 @@ dependencies {
 
     // Logging
     implementation(libs.ktor.client.logging)
+
+    // Koin core dependencies
+    implementation("io.insert-koin:koin-android:3.5.0")
+    implementation("io.insert-koin:koin-androidx-compose:3.5.0") // If using Jetpack Compose
+
+    // Optional: ViewModel support for Koin
+    implementation("io.insert-koin:koin-androidx-viewmodel:3.5.0")
+
+    // Optional: Koin navigation
+    implementation("io.insert-koin:koin-androidx-navigation:3.5.0")
 }
