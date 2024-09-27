@@ -18,7 +18,7 @@ val appModule = module {
     factory { ValidateEmailUseCase(baseRepository = get()) } // Provide the use case
 
     // Provide the SomeViewModel
-    viewModel { EmailValidatorViewModel(repository = get()) } // Inject BaseRepository
+    viewModel { EmailValidatorViewModel(validateEmailUseCase = get()) } // Inject BaseRepository
 
 
 }
