@@ -1,4 +1,6 @@
 package com.fakhrulasa.emailvalidator_composeclean.presentation.state
 
-class EmailValidatorScreenState {
+enum class EmailValidatorScreenState{
+    STATE_VALIDATE,
+    STATE_SHOW_INFO
 }

@@ -1,17 +1,24 @@
 package com.fakhrulasa.emailvalidator_composeclean.di
 
+import com.fakhrulasa.emailvalidator_composeclean.domain.interactor.ValidateEmailUseCase
 import com.fakhrulasa.emailvalidator_composeclean.domain.repository.BaseRepository
+import com.fakhrulasa.emailvalidator_composeclean.network.client.provideHttpClient
 import com.fakhrulasa.emailvalidator_composeclean.presentation.viewmodel.EmailValidatorViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
-    // Define a singleton for ApiService
-//    single { ApiService() }
+    single { provideHttpClient() } // Provide the HttpClient
 
-    // Define a factory for Repository, injecting ApiService
-//    factory { BaseRepository(get()) }
+    // Provide the base URL as a singleton or constant
+    single { "https://api.example.com" }
 
-    // Define a ViewModel, injecting Repository
-    viewModel { EmailValidatorViewModel(get()) }
+    // Provide the BaseRepository with the baseUrl from Koin
+    factory { BaseRepository(baseUrl = get()) } // Retrieve baseUrl from Koin
+    factory { ValidateEmailUseCase(baseRepository = get()) } // Provide the use case
+
+    // Provide the SomeViewModel
+    viewModel { EmailValidatorViewModel(repository = get()) } // Inject BaseRepository
+
+
 }

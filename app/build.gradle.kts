@@ -88,4 +88,6 @@ dependencies {
 
     // Optional: Koin navigation
     implementation("io.insert-koin:koin-androidx-navigation:3.5.0")
+    implementation("io.ktor:ktor-client-cio:2.0.0")
+
 }
