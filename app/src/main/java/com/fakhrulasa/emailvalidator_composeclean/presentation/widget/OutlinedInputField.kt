@@ -17,6 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -37,7 +38,7 @@ fun OutlinedTextFieldCustom(
             onTextChange.invoke(it)
             fieldValue = it
         },
-        label = { Text(hint) },
+        label = { Text(hint, style = TextStyle(color = Color.Black)) },
         keyboardOptions = KeyboardOptions(
             keyboardType = if (isPasswordField) KeyboardType.Password else KeyboardType.Text
         ),
@@ -56,7 +57,8 @@ fun OutlinedTextFieldCustom(
             focusedLabelColor = Color.Black,
             unfocusedBorderColor = Color.Black,
             focusedPlaceholderColor = Color.Black,
-            unfocusedPlaceholderColor = Color.Black
+            unfocusedPlaceholderColor = Color.Black,
+            focusedTextColor = Color.Black
         )
     )
 }
