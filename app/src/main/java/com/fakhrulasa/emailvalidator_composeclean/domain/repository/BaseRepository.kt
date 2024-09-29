@@ -3,6 +3,7 @@ package com.fakhrulasa.emailvalidator_composeclean.domain.repository
 import com.fakhrulasa.emailvalidator_composeclean.data.model.network_model.request.EmailValidatorRequestModel
 import com.fakhrulasa.emailvalidator_composeclean.data.model.network_model.response.EmailValidatorResponseModel
 import com.fakhrulasa.emailvalidator_composeclean.network.api.ApiInterface
+import com.fakhrulasa.emailvalidator_composeclean.network.endpoints.EndPointConstants.ENDPOINT_DOMAIN
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -20,11 +21,14 @@ class BaseRepository(
         return try {
             val response: EmailValidatorResponseModel = httpClient.get(baseUrl) {
                 contentType(io.ktor.http.ContentType.Application.Json)
+                /**
+                 * If you want to send body with post request
+                 */
 //            setBody(emailValidatorRequestModel)
                 /**
                  * If you want to send parameter
                  */
-                parameter("domain", emailValidatorRequestModel.domain)
+                parameter(ENDPOINT_DOMAIN, emailValidatorRequestModel.domain)
 
             }.body()
 
