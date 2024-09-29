@@ -54,7 +54,9 @@ fun OutlinedTextFieldCustom(
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = Color.Green,
             focusedLabelColor = Color.Black,
-            unfocusedBorderColor = Color.Gray
+            unfocusedBorderColor = Color.Black,
+            focusedPlaceholderColor = Color.Black,
+            unfocusedPlaceholderColor = Color.Black
         )
     )
 }

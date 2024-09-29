@@ -66,28 +66,17 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    // Ktor client core
     implementation(libs.ktor.client.core)
+    implementation("io.insert-koin:koin-android:4.0.0")
+    implementation("io.insert-koin:koin-androidx-compose:4.0.0") // If using Jetpack Compose
+    implementation("io.ktor:ktor-client-cio:3.0.0-rc-1")
 
-    // Ktor client for Android (OkHttp engine)
     implementation(libs.ktor.client.okhttp)
 
-    // Ktor serialization for JSON
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.serialization.kotlinx.json)
 
-    // Logging
     implementation(libs.ktor.client.logging)
 
-    // Koin core dependencies
-    implementation("io.insert-koin:koin-android:3.5.0")
-    implementation("io.insert-koin:koin-androidx-compose:3.5.0") // If using Jetpack Compose
-
-    // Optional: ViewModel support for Koin
-    implementation("io.insert-koin:koin-androidx-viewmodel:3.5.0")
-
-    // Optional: Koin navigation
-    implementation("io.insert-koin:koin-androidx-navigation:3.5.0")
-    implementation("io.ktor:ktor-client-cio:2.0.0")
 
 }

@@ -11,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.fakhrulasa.emailvalidator_composeclean.presentation.screen.EmailValidatorInputScreen
 import com.fakhrulasa.emailvalidator_composeclean.ui.theme.EmailValidatorComposeCleanTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,21 +21,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             EmailValidatorComposeCleanTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ValidatorScreen()
+                    EmailValidatorInputScreen()
                 }
             }
         }
     }
 }
-
-@Composable
-fun ValidatorScreen() {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-
-    }
-}
-
