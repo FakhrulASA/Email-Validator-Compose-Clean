@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
@@ -59,6 +60,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.runtime.livedata)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -66,17 +68,15 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation(libs.ktor.client.core)
-    implementation("io.insert-koin:koin-android:4.0.0")
-    implementation("io.insert-koin:koin-androidx-compose:4.0.0") // If using Jetpack Compose
-    implementation("io.ktor:ktor-client-cio:3.0.0-rc-1")
-
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose) // If using Jetpack Compose
+    implementation(libs.ktor.client.cio)
     implementation(libs.ktor.client.okhttp)
-
     implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.material3) // Use the appropriate version
+
     implementation(libs.ktor.serialization.kotlinx.json)
-
     implementation(libs.ktor.client.logging)
-
+    implementation(libs.kotlinx.serialization.json)
 
 }

@@ -11,8 +11,8 @@ import kotlinx.serialization.json.Json
 
 fun provideHttpClient(): HttpClient {
     val defaultHeader = mapOf(
-        "Authorization" to "Bearer YOUR_TOKEN_HERE",
-        "Custom-Header" to "HeaderValue"
+        "x-rapidapi-key" to "9b331297cfmsh8758e425c669262p177a17jsn246545f467d2",
+        "x-rapidapi-hos" to "mailcheck.p.rapidapi.com"
     )
     return HttpClient(CIO) {
         install(ContentNegotiation) {
@@ -31,6 +31,5 @@ fun provideHttpClient(): HttpClient {
             }
 
         }
-
-}
+    }
 }

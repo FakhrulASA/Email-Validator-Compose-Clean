@@ -1,17 +1,19 @@
 package com.fakhrulasa.emailvalidator_composeclean.data.model.network_model.response
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class EmailValidatorResponseModel(
     val block: Boolean,
     val disposable: Boolean,
-    val domain: String,
-    val email_forwarder: Boolean,
-    val last_changed_at: String,
-    val mx_host: String,
-    val mx_info: String,
-    val mx_ip: String,
-    val possible_typo: List<Any>,
-    val reason: String,
-    val risk: Int,
+    val domain: String?,                 // Nullable
+    val email_forwarder: Boolean,        // Not present in the failure case
+    val last_changed_at: String?,        // Nullable
+    val mx_info: String?,                // Nullable
+    val mx_ip: String?,                  // Nullable
+    val possible_typo: List<String> = emptyList(), // Default to empty list
+    val reason: String?,                  // Nullable
+    val risk: Int?,                       // Nullable
     val text: String,
     val valid: Boolean
 )

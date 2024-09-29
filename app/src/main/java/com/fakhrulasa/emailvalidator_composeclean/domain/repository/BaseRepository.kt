@@ -6,7 +6,7 @@ import com.fakhrulasa.emailvalidator_composeclean.network.api.ApiInterface
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
-import io.ktor.client.request.setBody
+import io.ktor.client.request.parameter
 import io.ktor.http.contentType
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -15,16 +15,30 @@ class BaseRepository(
     private val baseUrl: String
 ) : ApiInterface, KoinComponent {
     private val httpClient: HttpClient by inject()
-    override suspend fun validateEmail(emailValidatorRequestModel: EmailValidatorRequestModel): EmailValidatorResponseModel {
-        // Making the GET request to validate email
-        return httpClient.get("$baseUrl/validate-email") {
-            contentType(io.ktor.http.ContentType.Application.Json)
-            setBody(emailValidatorRequestModel)
-            /**
-             * If you want to send parameter
-             */
-//            parameter("email", email)
+    override suspend fun validateEmail(emailValidatorRequestModel: EmailValidatorRequestModel): Result<EmailValidatorResponseModel> {
 
-        }.body() // Automatically deserializes into EmailValidatorResponseModel
+        return try {
+            val response: EmailValidatorResponseModel = httpClient.get(baseUrl) {
+                contentType(io.ktor.http.ContentType.Application.Json)
+//            setBody(emailValidatorRequestModel)
+                /**
+                 * If you want to send parameter
+                 */
+                parameter("domain", emailValidatorRequestModel.domain)
+
+            }.body()
+
+            if (response.valid) {
+                // Email validation was successful
+                Result.success(response)
+            } else {
+                // Email validation failed
+                Result.failure(Exception(response.reason ?: "Unknown error"))
+            }
+        } catch (e: Exception) {
+            // Handle any exceptions that occur during the network call
+            Result.failure(e)
+        }
+
     }
 }

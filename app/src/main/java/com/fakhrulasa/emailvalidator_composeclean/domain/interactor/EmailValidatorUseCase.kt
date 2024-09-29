@@ -8,7 +8,7 @@ class ValidateEmailUseCase(
     private val baseRepository: BaseRepository // Inject your repository here
 ) : BaseUseCase<EmailValidatorRequestModel, EmailValidatorResponseModel> {
 
-    override suspend fun execute(request: EmailValidatorRequestModel): EmailValidatorResponseModel {
+    override suspend fun execute(request: EmailValidatorRequestModel): Result<EmailValidatorResponseModel> {
         return baseRepository.validateEmail(request)
     }
 }

@@ -4,5 +4,5 @@ import com.fakhrulasa.emailvalidator_composeclean.data.model.network_model.reque
 import com.fakhrulasa.emailvalidator_composeclean.data.model.network_model.response.EmailValidatorResponseModel
 
 interface ApiInterface {
-    suspend fun validateEmail(emailValidatorRequestModel: EmailValidatorRequestModel): EmailValidatorResponseModel
+    suspend fun validateEmail(emailValidatorRequestModel: EmailValidatorRequestModel): Result<EmailValidatorResponseModel>
 }

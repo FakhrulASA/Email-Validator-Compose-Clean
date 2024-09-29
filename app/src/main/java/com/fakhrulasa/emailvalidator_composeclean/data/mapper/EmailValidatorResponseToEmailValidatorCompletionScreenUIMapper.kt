@@ -9,11 +9,11 @@ object EmailValidatorResponseToEmailValidatorCompletionScreenUIMapper {
             isEmailValid = valid,
             blockStatus = block,
             disposableStatus = disposable,
-            domain = domain,
+            domain = domain?:"",
             statusString = text,
-            whiteListStatus = reason,
-            ip = mx_ip,
-            ipInfo = mx_info
+            whiteListStatus = reason?:"",
+            ip = mx_ip?:"",
+            ipInfo = mx_info?:""
         )
     }
 }

@@ -11,7 +11,7 @@ val appModule = module {
     single { provideHttpClient() } // Provide the HttpClient
 
     // Provide the base URL as a singleton or constant
-    single { "https://api.example.com" }
+    single { "https://mailcheck.p.rapidapi.com/" }
 
     // Provide the BaseRepository with the baseUrl from Koin
     factory { BaseRepository(baseUrl = get()) } // Retrieve baseUrl from Koin
