@@ -31,7 +31,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.fakhrulasa.emailvalidator_composeclean.R
+import com.fakhrulasa.emailvalidator_composeclean.data.mapper.EmailValidatorResponseToEmailValidatorCompletionScreenUIMapper.emailValidationResponseToEmailValidationCompletionScreenUi
 import com.fakhrulasa.emailvalidator_composeclean.presentation.viewmodel.EmailValidatorViewModel
+import com.fakhrulasa.emailvalidator_composeclean.presentation.widget.BottomSheet
+import com.fakhrulasa.emailvalidator_composeclean.presentation.widget.DetailReportWindow
 import com.fakhrulasa.emailvalidator_composeclean.presentation.widget.OutlinedTextFieldCustom
 import org.koin.androidx.compose.koinViewModel
 
@@ -49,7 +52,9 @@ fun EmailValidatorInputScreen(viewModel: EmailValidatorViewModel = koinViewModel
     val isError by viewModel.emailValidatorResponseError.observeAsState()
 
     if (emailLiveData != null) {
-        Toast.makeText(LocalContext.current, emailLiveData?.domain, Toast.LENGTH_LONG).show()
+      BottomSheet(content = {DetailReportWindow(emailLiveData!!.emailValidationResponseToEmailValidationCompletionScreenUi())}) {
+         //bottomsheet closed
+      }
     }
     if (requestData) {
         LaunchedEffect(true) {
