@@ -29,4 +29,3 @@ This project adheres to the **Clean Architecture** principles, ensuring:
 - **Testability**: Each component can be tested in isolation.
 - **Maintainability**: Changes in one layer do not affect others.
 
-### Project Structure
