@@ -5,6 +5,7 @@
 Welcome to the **Email Validator** project! This application is built using **Ktor**, **Koin**, and **Jetpack Compose**. It follows **Clean Architecture** principles and adheres to the **SOLID** principles, ensuring a robust, maintainable, and scalable codebase.
 
 
+
 ### Features
 
 - Validate email addresses efficiently with real-time feedback.
